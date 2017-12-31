@@ -113,7 +113,6 @@ public class Game {
                         + " Gold Coins.");
                 boolean isGameStillInProgress = didPlayerWin();
                 nextPlayer();
-
                 return isGameStillInProgress;
             } else {
                 nextPlayer();
@@ -121,13 +120,12 @@ public class Game {
             }
         } else {
 //  TODO: Duplicate code in method Game.wasCorrectlyAnswerd(). Outer.
-            System.out.println("Answer was corrent!!!!");
+            System.out.println("Answer was correct!!!!");
             purses[currentPlayer]++;
             System.out.println(players.get(currentPlayer)
                     + " now has "
                     + purses[currentPlayer]
                     + " Gold Coins.");
-
             boolean isGameStillInProgress = didPlayerWin();
             nextPlayer();
             return isGameStillInProgress;
