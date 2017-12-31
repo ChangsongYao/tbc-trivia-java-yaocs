@@ -35,7 +35,7 @@ public class Game {
         places[howManyPlayers()] = 0;
         purses[howManyPlayers()] = 0;
         inPenaltyBox[howManyPlayers()] = false;
-//      TODO-later: Replace System.out.println() with a log method of logger.
+//    TODO-later: Replace System.out.println() with a log method of logger.
         System.out.println(playerName + " was added");
         System.out.println("They are player number " + players.size());
         return true;
@@ -112,14 +112,12 @@ public class Game {
                         + purses[currentPlayer]
                         + " Gold Coins.");
                 boolean isGameStillInProgress = didPlayerWin();
-                currentPlayer++;
-                if (currentPlayer == players.size()) currentPlayer = 0;
+                nextPlayer();
 
                 return isGameStillInProgress;
             } else {
-//                TODO: Duplicate code in method Game.wasCorrectlyAnswered.
-                currentPlayer++;
-                if (currentPlayer == players.size()) currentPlayer = 0;
+//  TODO: Duplicate code in method Game.wasCorrectlyAnswered.
+                nextPlayer();
                 return true;
             }
 
@@ -134,11 +132,15 @@ public class Game {
                     + " Gold Coins.");
 
             boolean winner = didPlayerWin();
-            currentPlayer++;
-            if (currentPlayer == players.size()) currentPlayer = 0;
+            nextPlayer();
 
             return winner;
         }
+    }
+
+    private void nextPlayer(){
+        currentPlayer++;
+        if (currentPlayer == players.size()) currentPlayer = 0;
     }
 
     public boolean wrongAnswer() {
@@ -148,7 +150,7 @@ public class Game {
 
         currentPlayer++;
         if (currentPlayer == players.size()) currentPlayer = 0;
-//        TODO: The return value of method Game.wrongAnswerd() is unnecessary and should be eliminated
+//  TODO: The return value of method Game.wrongAnswerd() is unnecessary and should be eliminated
         return true;
     }
 
