@@ -139,7 +139,7 @@ public class Game {
 
         currentPlayer++;
         if (currentPlayer == players.size()) currentPlayer = 0;
-//  TODO: The return value of method Game.wrongAnswerd() is unnecessary and should be eliminated
+//  TODO-later: The return value of method Game.wrongAnswerd() is unnecessary and should be eliminated
         return true;
     }
 
