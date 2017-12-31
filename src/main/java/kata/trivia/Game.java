@@ -23,13 +23,8 @@ public class Game {
             popQuestions.addLast("Pop Question " + i);
             scienceQuestions.addLast(("Science Question " + i));
             sportsQuestions.addLast(("Sports Question " + i));
-//      TODO:inline method Game.createRockQuestion() to be private
-            rockQuestions.addLast(createRockQuestion(i));
+            rockQuestions.addLast("Rock Question " + i);
         }
-    }
-
-    public String createRockQuestion(int index) {
-        return "Rock Question " + index;
     }
 
 //    TODO: Remove the unused method Game.isPlayable()
