@@ -1,7 +1,13 @@
 package kata.trivia;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Game {
     private ArrayList players = new ArrayList();
@@ -17,7 +23,16 @@ public class Game {
     private int currentPlayer = 0;
     private boolean isGettingOutOfPenaltyBox;
 
+    private static Logger logger = Logger.getLogger("kata.trivia.Game");
+    private static FileHandler fileHandler = null;
     public Game() {
+        try{
+            fileHandler = new FileHandler("%h/Game-logging.log",10000000,1,true);
+            fileHandler.setFormatter(new SimpleFormatter());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        logger.addHandler(fileHandler);
         for (int i = 0; i < 50; i++) {
             popQuestions.addLast("Pop Question " + i);
             scienceQuestions.addLast(("Science Question " + i));
@@ -34,9 +49,8 @@ public class Game {
         places[howManyPlayers()] = 0;
         purses[howManyPlayers()] = 0;
         inPenaltyBox[howManyPlayers()] = false;
-//    TODO-later: Replace System.out.println() with a log method of logger.
-        System.out.println(playerName + " was added");
-        System.out.println("They are player number " + players.size());
+        logger.info(playerName + " was added");
+        logger.info("They are player number " + players.size());
         return true;
     } 
 
