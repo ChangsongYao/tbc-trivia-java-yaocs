@@ -122,7 +122,7 @@ public class Game {
                 + " now has "
                 + purses[currentPlayer]
                 + " Gold Coins.");
-        boolean isGameStillInProgress = didPlayerWin();
+        boolean isGameStillInProgress = isGameStillInProgress();
         nextPlayer();
         return isGameStillInProgress;
     }
