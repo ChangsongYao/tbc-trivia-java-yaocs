@@ -116,7 +116,6 @@ public class Game {
 
                 return isGameStillInProgress;
             } else {
-//  TODO: Duplicate code in method Game.wasCorrectlyAnswered.
                 nextPlayer();
                 return true;
             }
